@@ -4,8 +4,8 @@
   "description": "job portal",
   "main": "app.js",
   "scripts": {
-    "start": "node backend/app.js",
-    "server": "nodemon backend/app.js"
+    "start": "node app.js",
+    "server": "nodemon app.js"
   },
   "author": "Emmann",
   "license": "ISC",

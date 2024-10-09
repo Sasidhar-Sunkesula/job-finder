@@ -19,7 +19,6 @@ const jobRoute = require('./routes/jobsRoutes');
 
 const cookieParser = require("cookie-parser");
 const errorHandler = require("./middleware/error");
-
 //database connection
 mongoose.connect(process.env.DATABASE, {
   useNewUrlParser: true,

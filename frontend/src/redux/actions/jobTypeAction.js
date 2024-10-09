@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import {
     CREATE_JOB_TYPE_FAIL,
@@ -8,13 +7,13 @@ import {
     JOB_TYPE_LOAD_REQUEST,
     JOB_TYPE_LOAD_SUCCESS
 } from '../constants/jobTypeConstant';
-
+import axios from 'axios';
 
 // load jobs type
 export const jobTypeLoadAction = () => async (dispatch) => {
     dispatch({ type: JOB_TYPE_LOAD_REQUEST });
     try {
-        const { data } = await axios.get('/api/type/jobs');
+        const { data } = await axios.get('https://job-finder-tp0d.onrender.com/api/type/jobs');
         dispatch({
             type: JOB_TYPE_LOAD_SUCCESS,
             payload: data
@@ -27,26 +26,22 @@ export const jobTypeLoadAction = () => async (dispatch) => {
     }
 }
 
-
 // create jobs category
 export const createJobTypeAction = (jobtype) => async (dispatch) => {
-    dispatch({ type: CREATE_JOB_TYPE_REQUEST })
+    dispatch({ type: CREATE_JOB_TYPE_REQUEST });
 
     try {
-        const { data } = await axios.post("/api/type/create", jobtype)
+        const { data } = await axios.post("https://job-finder-tp0d.onrender.com/api/type/create", jobtype);
         dispatch({
             type: CREATE_JOB_TYPE_SUCCESS,
             payload: data
-        })
+        });
         toast.success("Job type created successfully");
-
-
     } catch (error) {
         dispatch({
             type: CREATE_JOB_TYPE_FAIL,
             payload: error.response.data.error
-        })
+        });
         toast.error(error.response.data.error);
-
     }
 }
