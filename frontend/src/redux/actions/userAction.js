@@ -25,7 +25,7 @@ export const userSignInAction = (user) => async (dispatch) => {
   dispatch({ type: USER_SIGNIN_REQUEST });
   try {
     const { data } = await axios.post(
-      "https://job-finder-tp0d.onrender.com/api/api/signin",
+      "https://job-finder-tp0d.onrender.com/api/signin",
       user
     );
     localStorage.setItem("userInfo", JSON.stringify(data));
